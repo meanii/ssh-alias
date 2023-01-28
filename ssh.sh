@@ -29,6 +29,7 @@ function saveSSH() {
 
         ARGS=$(echo $ARGS | sed "s|$ACTIVATE_SAVE_SSH_KEY||g")  # saving key to server
         ssh $ARGS /bin/bash << EOF
+mkdir -p ~/.ssh2 # making sure for ~/.ssh
 /bin/echo ${PUBLIC_KEY} >> ${AUTHORIED_KEYS_PATH}
 EOF
     ssh $ARGS # login to server after saving key 
